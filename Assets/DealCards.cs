@@ -19,6 +19,9 @@ public class DealCards : MonoBehaviour
     private Texture2D[] spades;
     private Texture2D[] diamonds;
 
+    private bool playerDone = false;
+    private bool playerBusted = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,10 +43,41 @@ public class DealCards : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!playerDone)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                DealCard(playerHand);
+                if (EvalHand.HandBusted(playerHand.GetComponent<EvalHand>().getHandValue()).Item1)
+                {
+                    playerDone = true;
+                    playerBusted = true;
+                    //payout dealer, end hand;
+                }
+            } else if (Input.GetKeyDown(KeyCode.W))
+            {
+                playerDone = true;
+            }
+        } else if(!playerBusted)
+        {
+            handleDealer();
+            Debug.Log(EvalHand.CompareHand(playerHand, dealerHand));
+        } else
+        {
+            Debug.Log(EvalHand.CompareHand(playerHand, dealerHand));
+        }
     }
 
+    private void handleDealer()
+    {
+        int dealerVal = EvalHand.GetHighestValidValue(dealerHand.GetComponent<EvalHand>().getHandValue());
 
+        while(dealerVal < 16)
+        {
+            DealCard(dealerHand);
+            dealerVal = EvalHand.GetHighestValidValue(dealerHand.GetComponent<EvalHand>().getHandValue());
+        }
+    }
 
     private void DealCard(GameObject hand){
         int card;
@@ -64,19 +98,17 @@ public class DealCards : MonoBehaviour
 
         GameObject newCard = Instantiate(cardTemplate, this.transform);
 
+        newCard.GetComponent<CardValue>().Value = value;
+
         newCard.transform.parent = hand.transform;
 
-        if(hand.transform.childCount == 2)
-        {
-            newCard.transform.position = new Vector3(5, hand.transform.position.y);
-        } else
-        {
-            newCard.transform.position = new Vector3(-5, hand.transform.position.y);
-        }
+        newCard.transform.position = new Vector3(-5 + hand.transform.childCount, hand.transform.position.y);
 
         Texture2D texture = ChooseTexture(suit, value);
 
         newCard.GetComponent<SpriteRenderer>().sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0, 0), 300);
+
+        hand.GetComponent<EvalHand>().cards.Add(newCard);
     }
 
     private Texture2D ChooseTexture(int suit, int value)

@@ -5,4 +5,5 @@ using UnityEngine;
 public class CardValue : MonoBehaviour
 {
     public int Value { get; set; }
+    public int Suit { get; set; }
 }

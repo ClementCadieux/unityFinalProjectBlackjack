@@ -97,6 +97,8 @@ public class DealCards : MonoBehaviour
         {
             HandleDealer();
             Debug.Log(EvalHand.CompareHand(playerHand, dealerHand));
+            ResetHand();
+            DealInitialHands();
         }
     }
 

@@ -14,7 +14,6 @@ public class DealCards : MonoBehaviour
     private GameObject playerHand;
     [SerializeField]
     private GameObject dealerHand;
-
     private Texture2D[] hearts;
     private Texture2D[] clubs;
     private Texture2D[] spades;
@@ -35,6 +34,8 @@ public class DealCards : MonoBehaviour
         diamonds = Resources.LoadAll<Texture2D>("Diamond");
 
         dealtCards = new HashSet<int>();
+
+
 
         DealInitialHands();
 
@@ -95,10 +96,14 @@ public class DealCards : MonoBehaviour
         }
         else
         {
-            HandleDealer();
-            Debug.Log(EvalHand.CompareHand(playerHand, dealerHand));
-            ResetHand();
-            DealInitialHands();
+            if (!handDone)
+            {
+                HandleDealer();
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                ResetHand();
+            }
         }
     }
 
@@ -143,7 +148,7 @@ public class DealCards : MonoBehaviour
 
     private void ResetHand()
     {
-        playerDone = false;
+        /*playerDone = false;
         playerBusted = false;
         handDone = false;
 
@@ -157,18 +162,18 @@ public class DealCards : MonoBehaviour
             Destroy(card.gameObject);
         }
 
-        /*
+        
         Destroy(playerHand);
         playerHand = Instantiate(playerHand);
 
         Destroy(dealerHand);
         dealerHand = Instantiate(dealerHand);
-        */
+        
 
         playerHand.GetComponent<EvalHand>().cards.Clear();
-        dealerHand.GetComponent<EvalHand>().cards.Clear();
+        dealerHand.GetComponent<EvalHand>().cards.Clear();*/
         
-        //SceneManager.LoadScene("ResetHand");
+        SceneManager.LoadScene("Scenes/ResetScene");
     }
 
     private void HandleDealer()
@@ -261,10 +266,10 @@ public class DealCards : MonoBehaviour
         }
     }
 
-    private IEnumerator HandlePlayerHands()
+    /*private IEnumerator HandlePlayerHands()
     {
         //HandlePlayer();
         yield return null;
         Debug.Log("Waiting");
-    }
+    }*/
 }

@@ -8,7 +8,7 @@ public class ResetHand : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Scenes/SampleScene");
     }
 
     // Update is called once per frame

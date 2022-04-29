@@ -14,6 +14,13 @@ public class DealCards : MonoBehaviour
     private GameObject playerHand;
     [SerializeField]
     private GameObject dealerHand;
+
+    [SerializeField]
+    private GameObject playerHandTemplate;
+
+    [SerializeField]
+    private GameObject playerHands;
+
     private Texture2D[] hearts;
     private Texture2D[] clubs;
     private Texture2D[] spades;
@@ -21,10 +28,9 @@ public class DealCards : MonoBehaviour
 
     private bool playerDone = false;
 
-    private bool playerBusted = false;
-
     private bool handDone = false;
 
+    int activeHand = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,11 +41,16 @@ public class DealCards : MonoBehaviour
 
         dealtCards = new HashSet<int>();
 
-
+        GetActiveHand().SetActive(GetActiveHand().GetComponent<EvalHand>().active);
 
         DealInitialHands();
 
         //StartCoroutine(HandlePlayerHands());
+    }
+
+    private GameObject GetActiveHand()
+    {
+        return playerHands.transform.GetChild(activeHand).gameObject;
     }
 
     /*private void HandlePlayer()
@@ -77,21 +88,24 @@ public class DealCards : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DisplayActiveHand();
         if (!playerDone)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                DealCard(playerHand, false);
-                if (EvalHand.HandBusted(playerHand.GetComponent<EvalHand>().getHandValue()).Item1)
+                DealCard(GetActiveHand(), false);
+                if (EvalHand.HandBusted(GetActiveHand().GetComponent<EvalHand>().getHandValue()).Item1)
                 {
-                    playerDone = true;
-                    playerBusted = true;
-                    //payout dealer, end hand;
+                    NextHand();
                 }
+            }
+            else if (Input.GetKeyDown(KeyCode.S) && GetActiveHand().GetComponent<EvalHand>().canSplit)
+            {
+                SplitHand(GetActiveHand());
             }
             else if (Input.GetKeyDown(KeyCode.W))
             {
-                playerDone = true;
+                NextHand();
             }
         }
         else
@@ -107,97 +121,88 @@ public class DealCards : MonoBehaviour
         }
     }
 
-    /*private void SplitHand()
+    private void DisplayActiveHand()
     {
-        GameObject hand = playerHand.transform.GetChild(0).gameObject;
-        GameObject hand2 = Instantiate(playerHandTemplate, playerHand.transform);
+        foreach (Transform hand in playerHands.transform)
+        {
+            GameObject handObj = hand.gameObject;
+            handObj.SetActive(handObj.GetComponent<EvalHand>().active);
+            foreach (Transform card in hand)
+            {
+                GameObject cardObj = card.gameObject;
+                cardObj.SetActive(handObj.GetComponent<EvalHand>().active);
+            }
+        }
+    }
 
-        hand.transform.position = new Vector3(-3, hand.transform.position.y);
+    private void NextHand()
+    {
+        GetActiveHand().GetComponent<EvalHand>().active = false;
+        activeHand++;
+        if (activeHand >= playerHands.transform.childCount) playerDone = true;
+        else GetActiveHand().GetComponent<EvalHand>().active = true;
+    }
 
-        hand2.transform.position = new Vector3(3, hand.transform.position.y);
+    private void SplitHand(GameObject hand)
+    {
+        GameObject hand2 = Instantiate(playerHandTemplate, playerHands.transform);
+        hand2.GetComponent<EvalHand>().active = false;
 
-        hand2.GetComponent<EvalHand>().cards.Add(hand.GetComponent<EvalHand>().cards[1]);
-        hand.GetComponent<EvalHand>().cards[1].transform.parent = hand2.transform;
-        hand.GetComponent<EvalHand>().cards.Remove(hand.GetComponent<EvalHand>().cards[1]);
+        GameObject card = hand.GetComponent<EvalHand>().cards[1];
+
+        hand2.GetComponent<EvalHand>().cards.Add(card);
+        card.transform.parent = hand2.transform;
+        hand.GetComponent<EvalHand>().cards.Remove(card);
+        card.SetActive(false);
+
+        card.transform.position = new Vector3(hand2.transform.childCount + hand2.transform.position.x, hand2.transform.position.y);
+
 
         DealCard(hand, false);
         DealCard(hand2, false);
-    }*/
-
-    /*private void HandleHand(int activeHand)
-    {
-        bool handDone = false;
-        GameObject hand = playerHand.transform.GetChild(activeHand).gameObject;
-        while (!handDone)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                DealCard(hand, false);
-                if (EvalHand.HandBusted(hand.GetComponent<EvalHand>().getHandValue()).Item1)
-                {
-                    playerDone = true;
-                    playerBusted = true;
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.W))
-            {
-                handDone = true;
-            }
-        }
-    }*/
+    }
 
     private void ResetHand()
     {
-        /*playerDone = false;
-        playerBusted = false;
-        handDone = false;
-
-        foreach (Transform card in playerHand.transform)
-        {
-            Destroy(card.gameObject);
-        }
-
-        foreach (Transform card in dealerHand.transform)
-        {
-            Destroy(card.gameObject);
-        }
-
-        
-        Destroy(playerHand);
-        playerHand = Instantiate(playerHand);
-
-        Destroy(dealerHand);
-        dealerHand = Instantiate(dealerHand);
-        
-
-        playerHand.GetComponent<EvalHand>().cards.Clear();
-        dealerHand.GetComponent<EvalHand>().cards.Clear();*/
-        
         SceneManager.LoadScene("Scenes/ResetScene");
     }
 
     private void HandleDealer()
     {
-        if (playerBusted)
+        bool allBusted = true;
+
+        foreach (Transform hand in playerHands.transform)
         {
-            Debug.Log(EvalHand.CompareHand(playerHand, dealerHand));
-            handDone = true;
-            return;
+            if (!EvalHand.HandBusted(hand.gameObject.GetComponent<EvalHand>().getHandValue()).Item1)
+            {
+                allBusted = false;
+                break;
+            }
         }
 
-        FlipUpsideDownCard();
+        if (!allBusted)
+        { 
+            FlipUpsideDownCard();
 
-        int dealerVal = EvalHand.GetHighestValidValue(dealerHand.GetComponent<EvalHand>().getHandValue());
+            int dealerVal = EvalHand.GetHighestValidValue(dealerHand.GetComponent<EvalHand>().getHandValue());
 
-        while (dealerVal <= 16)
-        {
-            DealCard(dealerHand, true);
-            dealerVal = EvalHand.GetHighestValidValue(dealerHand.GetComponent<EvalHand>().getHandValue());
+            while (dealerVal <= 16)
+            {
+                DealCard(dealerHand, true);
+                dealerVal = EvalHand.GetHighestValidValue(dealerHand.GetComponent<EvalHand>().getHandValue());
+            }
         }
 
         handDone = true;
 
-        Debug.Log(EvalHand.CompareHand(playerHand, dealerHand));
+        activeHand = 0;
+
+        foreach (Transform hand in playerHands.transform)
+        {
+            Debug.Log("Hand " + (activeHand + 1) + " " + EvalHand.CompareHand(GetActiveHand(), dealerHand));
+            activeHand++;
+        }
+
     }
 
     private void FlipUpsideDownCard()
@@ -231,6 +236,7 @@ public class DealCards : MonoBehaviour
 
         newCard.GetComponent<CardValue>().Value = value;
         newCard.GetComponent<CardValue>().Suit = suit;
+        newCard.SetActive(hand.GetComponent<EvalHand>().active);
 
         newCard.transform.position = new Vector3(hand.transform.childCount + hand.transform.position.x, hand.transform.position.y);
 

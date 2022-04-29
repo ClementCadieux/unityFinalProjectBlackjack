@@ -5,6 +5,12 @@ using UnityEngine;
 public class EvalHand : MonoBehaviour
 {
     public List<GameObject> cards;
+
+    public bool active;
+
+    public bool done;
+
+    public bool canSplit;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +19,7 @@ public class EvalHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        canSplit = cards.Count == 2 && cards[0].GetComponent<CardValue>().Value == cards[1].GetComponent<CardValue>().Value;
     }
 
 

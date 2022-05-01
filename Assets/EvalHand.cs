@@ -19,13 +19,15 @@ public class EvalHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        canSplit = cards.Count == 2 && cards[0].GetComponent<CardValue>().Value == cards[1].GetComponent<CardValue>().Value;
+        canSplit = cards.Count == 2 
+            && cards[0].GetComponent<CardValue>().Value == cards[1].GetComponent<CardValue>().Value
+            && BettingHandler.Bet * (transform.parent.childCount + 1) <= BettingHandler.TotalScore;
     }
 
 
     public List<int> getHandValue()
     {
-        List<int> handVals = new List<int>();
+        List<int> handVals = new();
         handVals.Add(0);
 
         foreach (GameObject card in cards)

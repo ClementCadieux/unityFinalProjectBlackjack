@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DealCards : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class DealCards : MonoBehaviour
     [SerializeField]
     private GameObject playerHands;
 
+    [SerializeField]
+    private Text payoutText;
+
     private Texture2D[] hearts;
     private Texture2D[] clubs;
     private Texture2D[] spades;
@@ -34,6 +38,7 @@ public class DealCards : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        payoutText.text = "";
         hearts = Resources.LoadAll<Texture2D>("Heart");
         clubs = Resources.LoadAll<Texture2D>("Club");
         spades = Resources.LoadAll<Texture2D>("Spade");
@@ -197,12 +202,33 @@ public class DealCards : MonoBehaviour
 
         activeHand = 0;
 
-        foreach (Transform hand in playerHands.transform)
+        string payoutStr = "";
+        float finalPayout = 0;
+
+        while(activeHand < playerHands.transform.childCount)
         {
-            Debug.Log("Hand " + (activeHand + 1) + " " + EvalHand.CompareHand(GetActiveHand(), dealerHand));
+            int result = EvalHand.CompareHand(GetActiveHand(), dealerHand);
+            (string, float) payoutRes = BettingHandler.Payout(result);
+            string resultStr = payoutRes.Item1;
+            float payoutAmmount = payoutRes.Item2;
+            
+            payoutStr += "Hand " + (activeHand + 1) + ": " + resultStr;
+
+            if (result == 1)
+            {
+                payoutStr += " | Lost " + payoutAmmount + "\n";
+                finalPayout -= payoutAmmount;
+            } else if(result == 0)
+            {
+                payoutStr += " | Won " + payoutAmmount + "\n";
+                finalPayout += payoutAmmount;
+            }
             activeHand++;
         }
 
+        payoutStr += "Total payout: " + finalPayout;
+
+        payoutText.text = payoutStr;
     }
 
     private void FlipUpsideDownCard()

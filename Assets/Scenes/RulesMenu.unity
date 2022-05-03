@@ -377,8 +377,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.25, y: 1.57}
-  m_SizeDelta: {x: 1725.44, y: 564.87}
+  m_AnchoredPosition: {x: -1.25, y: -9.34}
+  m_SizeDelta: {x: 1725.44, y: 634.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &675518371
 MonoBehaviour:
@@ -400,12 +400,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Each participant attempts to beat the dealer by getting a count as close
-    to 21 as possible, without going over 21.\n\nIt is up to each individual player
-    if an ace is worth 1 or 11. Face cards are 10 and any other card is its pip value.\n\nBefore
-    the deal begins, each player places a bet, in chips, in front of them in the
-    designated area. Minimum and maximum limits are established on the betting, and
-    the general limits are from \n\n\n"
+  m_text: "The dealer hands 2 cards to the player and has 2 cards to himself, one
+    of which is revealed to the player.  The goal of the game is to get your cards
+    to add up closest to 21 without going over while trying to beat what the dealer
+    has.  \nActions:\n-Hit, which adds a card to your hand.  You are allowed to hit
+    as many times as you want without going over 21.\n-Stand, allows you to not receive
+    any cards and stay with the hand you have.\n-Split, if you have 2 cards with
+    the same face value in your starting hand (ex: 2 Jacks or 2 10s), you may split
+    your hand and play 2 separate hands.\n\nHit: Pressing space bar or clicking the
+    Hit button\n\nStand: Pressing W or clicking the Stand button\n\nSplit:\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -730,8 +733,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -23.46}
-  m_SizeDelta: {x: 1781.11, y: 607.68}
+  m_AnchoredPosition: {x: 0, y: -18.5}
+  m_SizeDelta: {x: 1781.11, y: 685.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043506030
 MonoBehaviour:
@@ -911,7 +914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 676, y: -414}
+  m_AnchoredPosition: {x: 672, y: -442}
   m_SizeDelta: {x: 5, y: 1.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2017071290

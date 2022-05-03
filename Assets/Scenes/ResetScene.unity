@@ -123,8 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &154772718
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +258,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154772718}
   m_CullTransparentMesh: 1
->>>>>>> db65d38b9cd8ecaa9bb7732934e5596ba30abcef
 --- !u!1 &158939444
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,13 +295,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: -10, y: -83}
-  m_SizeDelta: {x: 160, y: 20}
-=======
   m_AnchoredPosition: {x: 0, y: -165}
   m_SizeDelta: {x: 457.69, y: 53.74}
->>>>>>> db65d38b9cd8ecaa9bb7732934e5596ba30abcef
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &158939446
 MonoBehaviour:
@@ -438,13 +430,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: 11.1, y: 27.17}
-  m_SizeDelta: {x: 182.21, y: 83.67}
-=======
   m_AnchoredPosition: {x: 0, y: 64}
   m_SizeDelta: {x: 1418.6, y: 331.74}
->>>>>>> db65d38b9cd8ecaa9bb7732934e5596ba30abcef
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &218160070
 MonoBehaviour:
@@ -468,19 +455,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< HEAD
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-=======
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
->>>>>>> db65d38b9cd8ecaa9bb7732934e5596ba30abcef
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -645,11 +624,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-<<<<<<< HEAD
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-=======
   m_BackGroundColor: {r: 0.7921569, g: 0.16470589, b: 0.10980392, a: 0}
->>>>>>> db65d38b9cd8ecaa9bb7732934e5596ba30abcef
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -697,8 +672,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &986050273
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,7 +807,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986050273}
   m_CullTransparentMesh: 1
->>>>>>> db65d38b9cd8ecaa9bb7732934e5596ba30abcef
 --- !u!1 &1231443301
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,11 +883,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-<<<<<<< HEAD
-  m_AdditionalShaderChannelsFlag: 0
-=======
   m_AdditionalShaderChannelsFlag: 25
->>>>>>> db65d38b9cd8ecaa9bb7732934e5596ba30abcef
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -933,11 +901,8 @@ RectTransform:
   m_Children:
   - {fileID: 158939445}
   - {fileID: 218160069}
-<<<<<<< HEAD
-=======
   - {fileID: 1556198502}
   - {fileID: 1453312609}
->>>>>>> db65d38b9cd8ecaa9bb7732934e5596ba30abcef
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1022,8 +987,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264081161}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
-=======
 --- !u!1 &1453312608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,7 +1064,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453312608}
   m_CullTransparentMesh: 1
->>>>>>> db65d38b9cd8ecaa9bb7732934e5596ba30abcef
 --- !u!1 &1484276269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,8 +1101,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-=======
 --- !u!1 &1556198501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1178,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556198501}
   m_CullTransparentMesh: 1
->>>>>>> db65d38b9cd8ecaa9bb7732934e5596ba30abcef
 --- !u!1 &1629836852
 GameObject:
   m_ObjectHideFlags: 0

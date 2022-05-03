@@ -59,6 +59,9 @@ public class DealCards : MonoBehaviour
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of db65d38 (Hand stays active at the end)
     /*private void HandlePlayer()
     {
         int activeHand = 0;
@@ -70,8 +73,11 @@ public class DealCards : MonoBehaviour
         }
     }*/
 
+<<<<<<< HEAD
 =======
 >>>>>>> db65d38b9cd8ecaa9bb7732934e5596ba30abcef
+=======
+>>>>>>> parent of db65d38 (Hand stays active at the end)
     private void DealInitialHands()
     {
         for (int i = 0; i < 2; i++)
@@ -122,6 +128,7 @@ public class DealCards : MonoBehaviour
             {
                 HandleDealer();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             } else
             {
@@ -131,6 +138,8 @@ public class DealCards : MonoBehaviour
 
                 DisplayActiveHand();
 >>>>>>> db65d38b9cd8ecaa9bb7732934e5596ba30abcef
+=======
+>>>>>>> parent of db65d38 (Hand stays active at the end)
             }
             if (Input.GetKeyDown(KeyCode.Space))
             {

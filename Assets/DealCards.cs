@@ -58,17 +58,6 @@ public class DealCards : MonoBehaviour
         return playerHands.transform.GetChild(activeHand).gameObject;
     }
 
-    /*private void HandlePlayer()
-    {
-        int activeHand = 0;
-
-        while(activeHand < playerHand.transform.childCount)
-        {
-            HandleHand(activeHand);
-            activeHand++;
-        }
-    }*/
-
     private void DealInitialHands()
     {
         for (int i = 0; i < 2; i++)
@@ -118,6 +107,13 @@ public class DealCards : MonoBehaviour
             if (!handDone)
             {
                 HandleDealer();
+            } else
+            {
+                activeHand = 0;
+
+                GetActiveHand().GetComponent<EvalHand>().active = true;
+
+                DisplayActiveHand();
             }
             if (Input.GetKeyDown(KeyCode.Space))
             {

@@ -770,7 +770,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
   m_text: Settings
+=======
+  m_text: Rules
+>>>>>>> db65d38b9cd8ecaa9bb7732934e5596ba30abcef
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1252,7 +1256,11 @@ GameObject:
   - component: {fileID: 1989302537}
   - component: {fileID: 1989302536}
   m_Layer: 5
+<<<<<<< HEAD
   m_Name: SettingsButton
+=======
+  m_Name: RulesMenu
+>>>>>>> db65d38b9cd8ecaa9bb7732934e5596ba30abcef
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

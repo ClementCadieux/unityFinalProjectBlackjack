@@ -403,12 +403,13 @@ MonoBehaviour:
   m_text: "The dealer hands 2 cards to the player and has 2 cards to himself, one
     of which is revealed to the player.  The goal of the game is to get your cards
     to add up closest to 21 without going over while trying to beat what the dealer
-    has.  \nActions:\n-Hit, which adds a card to your hand.  You are allowed to hit
-    as many times as you want without going over 21.\n-Stand, allows you to not receive
+    has.  \nActions:\n-Hit:  Adds a card to your hand.  You are allowed to hit as
+    many times as you want without going over 21.\n-Stand: Allows you to not receive
     any cards and stay with the hand you have.\n-Split, if you have 2 cards with
     the same face value in your starting hand (ex: 2 Jacks or 2 10s), you may split
-    your hand and play 2 separate hands.\n\nHit: Pressing space bar or clicking the
-    Hit button\n\nStand: Pressing W or clicking the Stand button\n\nSplit:\n\n\n\n"
+    your hand and play 2 separate hands.\nControls:\nHit: Pressing space bar or clicking
+    the Hit button.\n\nStand: Pressing W or clicking the Stand button.\n\nSplit:
+    Pressing S or clicking the Split button.\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -889,6 +890,7 @@ GameObject:
   - component: {fileID: 2017071292}
   - component: {fileID: 2017071291}
   - component: {fileID: 2017071290}
+  - component: {fileID: 2017071293}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -960,7 +962,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2017071291}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2017071293}
+        m_TargetAssemblyTypeName: LoadNewScene, Assembly-CSharp
+        m_MethodName: NextScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2017071291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,6 +1013,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017071288}
   m_CullTransparentMesh: 1
+--- !u!114 &2017071293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017071288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644a1228b751e364f97e338fbc1cf52b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2059618785
 GameObject:
   m_ObjectHideFlags: 0

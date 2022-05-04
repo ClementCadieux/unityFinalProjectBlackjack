@@ -9,5 +9,5 @@ public class LoadNewScene : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
-  
+ 
 }

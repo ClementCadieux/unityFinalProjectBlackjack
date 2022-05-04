@@ -2,11 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField]
+    Canvas pauseMenu;
 
-    GameObject pauseMenuCanvas;
+    [SerializeField]
+    Canvas gameCanvas;
+
+    [SerializeField]
+    GameObject gameObject1;
+
+    [SerializeField]
+    GameObject gameObject2;
+
+    [SerializeField]
+    GameObject gameObject3;
 
     public bool GameIsPaused = false;
 
@@ -17,25 +30,37 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Resume();
-        }
-        else
-        {
-            pause();
+            if (GameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
         }
     }
 
-    public void pause()
+    public void Pause()
     {
-        Time.timeScale = 0;
-        pauseMenuCanvas.SetActive(true);
         GameIsPaused = true;
+        Time.timeScale = 0;
+        pauseMenu.enabled = true;
+        gameCanvas.enabled = false;
+        gameObject1.SetActive(false);
+        gameObject2.SetActive(false);
+        gameObject3.SetActive(false);
+        
     }
 
     public void Resume()
     {
-        pauseMenuCanvas.SetActive(false);
-        GameIsPaused=false;
-        Time.timeScale = 2.5f;
+        GameIsPaused = false;
+        Time.timeScale = 1;
+        pauseMenu.enabled = false;
+        gameCanvas.enabled=true;
+        gameObject1.SetActive(true);
+        gameObject2.SetActive(true);
+        gameObject3.SetActive(true);
     }
 }

@@ -27,8 +27,12 @@ public class ResetHand : MonoBehaviour
         {
             BettingHandler.Bet = slider.value;
             SceneManager.LoadScene("Scenes/SampleScene");
+
         }
     }
+
+    public static string betAmount = "" + BettingHandler.Bet;
+    public static string playerScoreAmount = "" + BettingHandler.TotalScore;
 
     public void BetAmount()
     {

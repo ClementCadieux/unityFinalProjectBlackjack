@@ -134,8 +134,8 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
 --root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\UnityEngine.Advertisements.dll
 --root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\UnityEngine.Purchasing.Stores.dll
---root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
+--root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\UnityEngine.Purchasing.dll
 --root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\UnityEngine.Purchasing.SecurityStub.dll
 --root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\Unity.2D.SpriteShape.Runtime.dll
@@ -292,8 +292,8 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
 --root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\UnityEngine.Advertisements.dll
 --root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\UnityEngine.Purchasing.Stores.dll
---root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
+--root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\UnityEngine.Purchasing.dll
 --root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\UnityEngine.Purchasing.SecurityStub.dll
 --root-assembly=C:\Users\alexe\Documents\6th SEMESTER\Game Developement\LABS\unityFinalProjectBlackjack-master\Temp\StagingArea\Data\Managed\Unity.2D.SpriteShape.Runtime.dll

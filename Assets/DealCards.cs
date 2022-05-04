@@ -35,6 +35,8 @@ public class DealCards : MonoBehaviour
     private bool handDone = false;
 
     int activeHand = 0;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -122,6 +124,58 @@ public class DealCards : MonoBehaviour
         }
     }
 
+    public void HitButtonMethod()
+    {
+        DisplayActiveHand();
+        if (!playerDone) { 
+
+            DealCard(GetActiveHand(), false);
+            if (EvalHand.HandBusted(GetActiveHand().GetComponent<EvalHand>().getHandValue()).Item1)
+            {
+                NextHand();
+            }
+            
+        }
+        else
+        {
+            
+            if (!handDone)
+            {
+                HandleDealer();
+            }
+            else
+            {
+                activeHand = 0;
+
+                GetActiveHand().GetComponent<EvalHand>().active = true;
+
+                DisplayActiveHand();
+
+                ResetHand();
+            }
+            
+        }
+    }
+    public void SplitButtonMethod()
+    {
+        DisplayActiveHand();
+        if (!playerDone)
+        {
+            if (GetActiveHand().GetComponent<EvalHand>().canSplit)
+            {
+                SplitHand(GetActiveHand());
+            }
+
+        }
+    }
+    public void StandButtonMethod()
+    {
+        DisplayActiveHand();
+        if (!playerDone)
+        {
+            NextHand();
+        }
+    }
     private void DisplayActiveHand()
     {
         foreach (Transform hand in playerHands.transform)

@@ -29,4 +29,9 @@ public class ResetHand : MonoBehaviour
             SceneManager.LoadScene("Scenes/SampleScene");
         }
     }
+
+    public void BetAmount()
+    {
+
+    }
 }

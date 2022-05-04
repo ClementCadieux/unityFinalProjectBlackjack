@@ -600,7 +600,6 @@ GameObject:
   - component: {fileID: 481020621}
   - component: {fileID: 481020620}
   - component: {fileID: 481020619}
-  - component: {fileID: 481020618}
   m_Layer: 5
   m_Name: StartGameButton
   m_TagString: Untagged
@@ -629,18 +628,6 @@ RectTransform:
   m_AnchoredPosition: {x: -7.015, y: -364}
   m_SizeDelta: {x: 14.03, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &481020618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 481020616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644a1228b751e364f97e338fbc1cf52b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &481020619
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class LoadNewScene : MonoBehaviour
     public void NextScene(string scene)
     {
         SceneManager.LoadScene(scene);
+        Time.timeScale = 1f;
     }
  
 }

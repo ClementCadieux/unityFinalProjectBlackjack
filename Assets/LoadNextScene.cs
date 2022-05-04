@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class LoadingSceneWithBet : MonoBehaviour
-{
+public class LoadNextScene : MonoBehaviour
+{   
     public void NextScene(string scene)
     {
         SceneManager.LoadScene(scene);
+        Time.timeScale = 1f;
     }
 }

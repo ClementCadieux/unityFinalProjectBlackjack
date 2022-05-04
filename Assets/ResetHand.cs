@@ -32,6 +32,11 @@ public class ResetHand : MonoBehaviour
 
     public void BetAmount()
     {
-
+        text.text = "Total score: " + BettingHandler.TotalScore + "\nBet: " + slider.value;
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+            BettingHandler.Bet = slider.value;
+            SceneManager.LoadScene("Scenes/SampleScene");
+        //}
     }
 }

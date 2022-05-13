@@ -25,6 +25,12 @@ public class DealCards : MonoBehaviour
     [SerializeField]
     private Text payoutText;
 
+    [SerializeField]
+    private Button splitButton;
+
+    [SerializeField]
+    private Button doubleButton;
+
     private Texture2D[] hearts;
     private Texture2D[] clubs;
     private Texture2D[] spades;
@@ -85,6 +91,8 @@ public class DealCards : MonoBehaviour
     void Update()
     {
         DisplayActiveHand();
+        splitButton.gameObject.SetActive((GetActiveHand().GetComponent<EvalHand>().canSplit));
+        doubleButton.gameObject.SetActive((GetActiveHand().GetComponent<EvalHand>().canDouble));
         if (!playerDone)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -121,6 +129,34 @@ public class DealCards : MonoBehaviour
             {
                 ResetHand();
             }
+        }
+    }
+
+    public void DoubleButtonMethod()
+    {
+        if (!playerDone)
+        {
+            DealCard(GetActiveHand(), false);
+            NextHand();
+        }
+        else
+        {
+
+            if (!handDone)
+            {
+                HandleDealer();
+            }
+            else
+            {
+                activeHand = 0;
+
+                GetActiveHand().GetComponent<EvalHand>().active = true;
+
+                DisplayActiveHand();
+
+                ResetHand();
+            }
+
         }
     }
 
@@ -161,11 +197,7 @@ public class DealCards : MonoBehaviour
         DisplayActiveHand();
         if (!playerDone)
         {
-            if (GetActiveHand().GetComponent<EvalHand>().canSplit)
-            {
-                SplitHand(GetActiveHand());
-            }
-
+            SplitHand(GetActiveHand());
         }
     }
     public void StandButtonMethod()
@@ -194,7 +226,10 @@ public class DealCards : MonoBehaviour
     {
         GetActiveHand().GetComponent<EvalHand>().active = false;
         activeHand++;
-        if (activeHand >= playerHands.transform.childCount) playerDone = true;
+        if (activeHand >= playerHands.transform.childCount) { 
+            playerDone = true;
+            activeHand--;
+        }
         else GetActiveHand().GetComponent<EvalHand>().active = true;
     }
 

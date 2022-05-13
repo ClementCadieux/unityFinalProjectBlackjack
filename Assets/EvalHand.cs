@@ -11,6 +11,10 @@ public class EvalHand : MonoBehaviour
     public bool done;
 
     public bool canSplit;
+
+    public bool canDouble;
+
+    public bool dealer;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +23,11 @@ public class EvalHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        canSplit = cards.Count == 2 
+        canSplit = !dealer && cards.Count == 2 
             && cards[0].GetComponent<CardValue>().Value == cards[1].GetComponent<CardValue>().Value
+            && BettingHandler.Bet * (transform.parent.childCount + 1) <= BettingHandler.TotalScore;
+
+        canDouble = !dealer && cards.Count == 2
             && BettingHandler.Bet * (transform.parent.childCount + 1) <= BettingHandler.TotalScore;
     }
 
